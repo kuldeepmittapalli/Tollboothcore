@@ -1,0 +1,11 @@
+#Example - Test
+GET    /tollbooth/getData/:id                                         controllers.HomeController.getData(id: String)
+
+#High-Level-Controllers
+POST   /tollbooth/api/:appId/:appType/channels/purchase               play.tollboothcore.controllers.TollboothGateController.oldCharge(appId: String, appType: String)
+POST   /tollbooth/api/:appId/:appType/products/prorationCalculation   play.tollboothcore.controllers.TollboothGateController.prorationCalculation(appId: String, appType: String)
+
+
+
+
+#->     /v1/posts                                   posts.Routes
