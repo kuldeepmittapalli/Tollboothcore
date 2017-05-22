@@ -16,7 +16,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.tollboothcore.dataObjects.ComcastProrateCalculationRequest;
 import play.tollboothcore.dataObjects.TollboothGateSubscribeRequest;
-import play.tollboothcore.service.ChargeGatewayServiceImpl;
+import play.tollboothcore.service.ChargeGatewayService;
 
 /**
  * This controller contains an action to handle HTTP requests to the
@@ -27,7 +27,7 @@ import play.tollboothcore.service.ChargeGatewayServiceImpl;
 public class TollboothGateController extends Controller {
 
 	@Inject
-	private ChargeGatewayServiceImpl chargeGatewayServiceImpl;
+	private ChargeGatewayService chargeGatewayServiceImpl;
 
 	public TollboothGateController() {
 	}
@@ -47,11 +47,9 @@ public class TollboothGateController extends Controller {
 	public Result prorationCalculation(String appId, String appType)
 			throws JsonParseException, JsonMappingException, IOException {
 		JsonNode json = request().body().asJson();
+		System.out.println("chargeGatewayService is "+chargeGatewayServiceImpl);
 		Form<ComcastProrateCalculationRequest> form = Form.form(ComcastProrateCalculationRequest.class)
 				.bindFromRequest();
-		if (form.hasErrors()) {
-			return badRequest("Invalid Proration Calculation Request.");
-		}
 		return ok(chargeGatewayServiceImpl.prorationCalculation(json));
 
 	}

@@ -6,11 +6,10 @@ package play.tollboothcore.service;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import javax.inject.Inject;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -21,10 +20,10 @@ import play.libs.ws.WSResponse;
  * @author
  *
  */
-@Service
+@Component
 public class ChargeGatewayServiceImpl implements ChargeGatewayService {
 
-	@Inject
+	@Autowired
 	WSClient ws;
 
 	private static final Logger LOG = LoggerFactory.getLogger(ChargeGatewayServiceImpl.class);

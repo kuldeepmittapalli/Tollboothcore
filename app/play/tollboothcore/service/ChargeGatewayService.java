@@ -2,8 +2,6 @@ package play.tollboothcore.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import play.tollboothcore.dataObjects.TollboothGateSubscribeRequest;
-
 /**
  * Interface for integrating with a Payment Gateway
  * 
