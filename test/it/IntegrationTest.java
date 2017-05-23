@@ -1,8 +1,19 @@
 package it;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.AbstractModule;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static play.mvc.Http.Status.GATEWAY_TIMEOUT;
+import static play.mvc.Http.Status.SERVICE_UNAVAILABLE;
+import static play.test.Helpers.GET;
+import static play.test.Helpers.POST;
+import static play.test.Helpers.contentAsString;
+import static play.test.Helpers.route;
+
 import org.junit.Test;
+
+import com.fasterxml.jackson.databind.JsonNode;
+
 import play.Application;
 import play.inject.guice.GuiceApplicationBuilder;
 import play.libs.Json;
@@ -12,11 +23,6 @@ import play.test.WithApplication;
 import v1.post.PostData;
 import v1.post.PostRepository;
 import v1.post.PostResource;
-
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
-import static play.test.Helpers.*;
 
 public class IntegrationTest extends WithApplication {
 

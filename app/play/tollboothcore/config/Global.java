@@ -16,7 +16,8 @@ public class Global {
 
     private ConfigurableApplicationContext applicationContext;
 
-    @Inject
+    @SuppressWarnings("deprecation")
+	@Inject
     public Global( ApplicationLifecycle lifecycle ) {
         applicationContext =new AnnotationConfigApplicationContext(TollboothSpringConfiguration.class);
         lifecycle.addStopHook( () -> {
