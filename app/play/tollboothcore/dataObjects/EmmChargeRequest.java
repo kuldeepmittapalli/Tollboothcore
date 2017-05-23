@@ -1,6 +1,9 @@
 package play.tollboothcore.dataObjects;
 
 import java.math.BigDecimal;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import play.data.format.Formats;
 import play.data.validation.Constraints.Required;
@@ -8,41 +11,41 @@ import play.data.validation.Constraints.Required;
 public class EmmChargeRequest {
 	@Required
 	private String transactionID;
-	
+
 	@Required
 	private String chargeTokenID;
-	
-	private String accountID;
-	
+
 	@Required
 	private String epcProductCode;
-	
+
 	@Required
-	@Formats.DateTime(pattern="MM/dd/yyyy")
-	private String serviceStartDate;
-	
+	@Formats.DateTime(pattern = "MM/dd/yyyy")
+	@JsonFormat(pattern =  "MM/dd/yyyy")
+	private Date serviceStartDate;
+
 	@Required
-	@Formats.DateTime(pattern="MM/dd/yyyy")
-	private String serviceEndDate;
-	
+	@Formats.DateTime(pattern = "MM/dd/yyyy")
+	@JsonFormat(pattern =  "MM/dd/yyyy")
+	private Date serviceEndDate;
+
 	@Required
 	private BigDecimal chargeAmount;
-	
+
 	@Required
 	private String description;
-	
+
 	@Required
 	private String uben;
-	
+
 	@Required
 	private String providerCode;
-	
+
 	@Required
 	private String titlePaid;
-	
+
 	@Required
 	private String obfuscatedAccountToken;
-	
+
 	private boolean prorate;
 
 	public String getTransactionID() {
@@ -61,14 +64,6 @@ public class EmmChargeRequest {
 		this.chargeTokenID = chargeTokenID;
 	}
 
-	public String getAccountID() {
-		return accountID;
-	}
-
-	public void setAccountID(String accountID) {
-		this.accountID = accountID;
-	}
-
 	public String getEpcProductCode() {
 		return epcProductCode;
 	}
@@ -77,19 +72,19 @@ public class EmmChargeRequest {
 		this.epcProductCode = epcProductCode;
 	}
 
-	public String getServiceStartDate() {
+	public Date getServiceStartDate() {
 		return serviceStartDate;
 	}
 
-	public void setServiceStartDate(String serviceStartDate) {
+	public void setServiceStartDate(Date serviceStartDate) {
 		this.serviceStartDate = serviceStartDate;
 	}
 
-	public String getServiceEndDate() {
+	public Date getServiceEndDate() {
 		return serviceEndDate;
 	}
 
-	public void setServiceEndDate(String serviceEndDate) {
+	public void setServiceEndDate(Date serviceEndDate) {
 		this.serviceEndDate = serviceEndDate;
 	}
 
@@ -151,12 +146,10 @@ public class EmmChargeRequest {
 
 	@Override
 	public String toString() {
-		return "EmmChargeRequest [transactionID=" + transactionID + ", chargeTokenID=" + chargeTokenID + ", accountID="
-				+ accountID + ", epcProductCode=" + epcProductCode + ", serviceStartDate=" + serviceStartDate
-				+ ", serviceEndDate=" + serviceEndDate + ", chargeAmount=" + chargeAmount + ", description="
-				+ description + ", uben=" + uben + ", providerCode=" + providerCode + ", titlePaid=" + titlePaid
-				+ ", obfuscatedAccountToken=" + obfuscatedAccountToken + ", prorate=" + prorate + "]";
+		return "EmmChargeRequest [transactionID=" + transactionID + ", chargeTokenID=" + chargeTokenID
+				+ ", epcProductCode=" + epcProductCode + ", serviceStartDate=" + serviceStartDate + ", serviceEndDate="
+				+ serviceEndDate + ", chargeAmount=" + chargeAmount + ", description=" + description + ", uben=" + uben
+				+ ", providerCode=" + providerCode + ", titlePaid=" + titlePaid + ", obfuscatedAccountToken="
+				+ obfuscatedAccountToken + ", prorate=" + prorate + "]";
 	}
-
-	
 }

@@ -20,6 +20,8 @@ public interface ChargeGatewayService {
 	String oldCharge(JsonNode json);
 
 	String prorationCalculation(JsonNode json);
+	
+	String charge(JsonNode json);
 
 	
 	

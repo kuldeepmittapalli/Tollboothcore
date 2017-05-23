@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import play.data.FormFactory;
 import play.libs.ws.WSClient;
 
 @Configuration
@@ -21,8 +22,18 @@ public class TollboothSpringConfiguration {
 		return wsclient;
 	}
 	
+	@Inject
+	private FormFactory formFactory;
+	
+	@Bean
+	public FormFactory getFormFactory(){
+		return formFactory;
+	}
+	
 	@Autowired
 	private WSClient wsClient;
+	
+
 	
 	
 }

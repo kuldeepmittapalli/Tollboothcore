@@ -4,7 +4,7 @@ GET    /tollbooth/getData/:id                                         controller
 #High-Level-Controllers
 POST   /tollbooth/api/:appId/:appType/channels/purchase               play.tollboothcore.controllers.TollboothGateController.oldCharge(appId: String, appType: String)
 POST   /tollbooth/api/:appId/:appType/products/prorationCalculation   play.tollboothcore.controllers.TollboothGateController.prorationCalculation(appId: String, appType: String)
-
+POST   /tollbooth/api/:appId/:appType/products/charge                 play.tollboothcore.controllers.TollboothGateController.charge(appId: String, appType: String)
 
 
 
