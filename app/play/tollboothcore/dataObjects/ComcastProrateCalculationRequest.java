@@ -14,17 +14,15 @@ public class ComcastProrateCalculationRequest {
 	private String epcProductCode;
 	
 	@Required
+	private String currency;
+	
+	@Required
 	@Formats.DateTime(pattern="MM/dd/yyyy")
 	private Date serviceStartDate;
 	
 	@Required
-	@Formats.DateTime(pattern="MM/dd/yyyy")
-	private Date serviceEndDate;
-	
-	@Required
 	private BigDecimal chargeAmount;
 	
-	@Required
 	private String description;
 	
 	@Required
@@ -46,6 +44,14 @@ public class ComcastProrateCalculationRequest {
 		this.epcProductCode = epcProductCode;
 	}
 
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
 	public Date getServiceStartDate() {
 		return serviceStartDate;
 	}
@@ -53,7 +59,6 @@ public class ComcastProrateCalculationRequest {
 	public void setServiceStartDate(Date serviceStartDate) {
 		this.serviceStartDate = serviceStartDate;
 	}
-
 
 	public BigDecimal getChargeAmount() {
 		return chargeAmount;
@@ -79,23 +84,12 @@ public class ComcastProrateCalculationRequest {
 		this.obfuscatedAccountToken = obfuscatedAccountToken;
 	}
 
-	public Date getServiceEndDate() {
-		return serviceEndDate;
-	}
-
-	public void setServiceEndDate(Date serviceEndDate) {
-		this.serviceEndDate = serviceEndDate;
-	}
-
 	@Override
 	public String toString() {
 		return "ComcastProrateCalculationRequest [transactionID=" + transactionID + ", epcProductCode=" + epcProductCode
-				+ ", serviceStartDate=" + serviceStartDate + ", serviceEndDate=" + serviceEndDate + ", chargeAmount="
-				+ chargeAmount + ", description=" + description + ", obfuscatedAccountToken=" + obfuscatedAccountToken
-				+ "]";
+				+ ", currency=" + currency + ", serviceStartDate=" + serviceStartDate + ", chargeAmount=" + chargeAmount
+				+ ", description=" + description + ", obfuscatedAccountToken=" + obfuscatedAccountToken + "]";
 	}
 
 
-
-	
 }

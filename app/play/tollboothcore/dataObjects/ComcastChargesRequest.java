@@ -16,9 +16,10 @@ public class ComcastChargesRequest {
 	public void setTransactions(List<EmmChargeRequest> transactions) {
 		this.transactions = transactions;
 	}
-   
+
 	@Override
 	public String toString() {
-		return "EMMGroupChargesRequest [transactions=" + transactions + "]";
+		return "ComcastChargesRequest [transactions=" + transactions + "]";
 	}
+
 }

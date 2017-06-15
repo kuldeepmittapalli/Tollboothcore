@@ -9,15 +9,7 @@ public class EmmServiceResponse {
 	
 	private List<String> responseMessages;
 
-	private String responseCode;
-		
-	public String getResponseCode() {
-		return responseCode;
-	}
-	
-	public void setResponseCode(String responseCode) {
-		this.responseCode = responseCode;
-	}
+	private int responseCode;
 
 	public List<String> getResponseMessages() {
 		return responseMessages;
@@ -27,10 +19,20 @@ public class EmmServiceResponse {
 		this.responseMessages = responseMessages;
 	}
 
+	public int getResponseCode() {
+		return responseCode;
+	}
+
+	public void setResponseCode(int responseCode) {
+		this.responseCode = responseCode;
+	}
+
 	@Override
 	public String toString() {
 		return "EmmServiceResponse [responseMessages=" + responseMessages + ", responseCode=" + responseCode + "]";
 	}
+		
+
 }
     
 

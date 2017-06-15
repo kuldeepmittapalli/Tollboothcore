@@ -2,6 +2,8 @@ package play.tollboothcore.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+import play.tollboothcore.dataObjects.FutureResult;
+
 /**
  * Interface for integrating with a Payment Gateway
  * 
@@ -17,11 +19,11 @@ public interface ChargeGatewayService {
 	 * @param request
 	 * @return
 	 */
-	String oldCharge(JsonNode json);
+	FutureResult oldCharge(JsonNode json);
 
-	String prorationCalculation(JsonNode json);
+	FutureResult prorationCalculation(JsonNode json);
 	
-	String charge(JsonNode json);
+	FutureResult charge(JsonNode json);
 
 	
 	

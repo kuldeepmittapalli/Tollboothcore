@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import play.libs.ws.WSClient;
+import play.tollboothcore.dataObjects.FutureResult;
 
 /**
  * @author
@@ -31,7 +32,7 @@ public class ChargeGatewayServiceImpl implements ChargeGatewayService {
 
 
 	@Override
-	public String oldCharge(JsonNode json) {
+	public FutureResult oldCharge(JsonNode json) {
 		LOG.info("********** Processing Charge started from TollboothCore to Tollbooth EMM for " + json.toString());
 		String url = "http://example.com";
 		LOG.info("********** Processing POST request to Tollbooth EMM");
@@ -40,7 +41,7 @@ public class ChargeGatewayServiceImpl implements ChargeGatewayService {
 	}
 
 	@Override
-	public String prorationCalculation(JsonNode json) {
+	public FutureResult prorationCalculation(JsonNode json) {
 		LOG.info("********** Processing Proration calculation request from TollboothCore to Tollbooth EMM for " + json.toString());
 		String url = "http://localhost:8081/tollboothemm/api/watchable/stb/products/prorationCalculation";
 		LOG.info("********** Processing ProrationCalculation POST request to Tollbooth EMM");
@@ -49,7 +50,7 @@ public class ChargeGatewayServiceImpl implements ChargeGatewayService {
 	}
 
 	@Override
-	public String charge(JsonNode json) {
+	public FutureResult charge(JsonNode json) {
 		LOG.info("********** Processing charge request from TollboothCore to Tollbooth EMM for " + json.toString());
 		String url = "http://localhost:8081/tollboothemm/api/watchable/stb/products/charge";
 		LOG.info("********** Processing Charge POST request to Tollbooth EMM");

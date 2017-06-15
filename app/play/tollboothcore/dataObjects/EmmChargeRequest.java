@@ -12,7 +12,6 @@ public class EmmChargeRequest {
 	@Required
 	private String transactionID;
 
-	@Required
 	private String chargeTokenID;
 
 	@Required
